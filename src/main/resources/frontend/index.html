@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarefas Demanxier</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/ico" href="img/Javali-Favicon.ico">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="grid-header">
+        <div class="logo">
+            <h1>Boar Task</h1>
+        </div>
+        <nav class="menu">
+            <a href="relatorio.html">Relatórios</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="grid-main">
+        <!-- Coluna A Fazer -->
+        <div class="column" data-status="A_FAZER">
+            <div class="column-header">
+                <h2>A Fazer</h2>
+                <button class="add-card" onclick="showCardForm()">+</button>
+            </div>         
+            <div class="cards" ondragover="allowDrop(event)" ondrop="drop(event)"></div> 
+        </div>
+
+        <!-- Coluna Fazendo -->
+        <div class="column" data-status="FAZENDO">
+            <div class="column-header">
+                <h2>Fazendo</h2>
+            </div>
+            <div class="cards" ondragover="allowDrop(event)" ondrop="drop(event)"></div> 
+        </div>
+
+        <!-- Coluna Pausado -->
+        <div class="column" data-status="PAUSADO">
+            <div class="column-header">
+                <h2>Pausado</h2>
+            </div>
+            <div class="cards" ondragover="allowDrop(event)" ondrop="drop(event)"></div> 
+        </div>
+
+        <!-- Coluna Concluído -->
+        <div class="column" data-status="CONCLUIDO">
+            <div class="column-header">
+                <h2>Concluído</h2>
+            </div>
+            <div class="cards" ondragover="allowDrop(event)" ondrop="drop(event)"></div> 
+        </div>
+    </main>
+
+
+    <!-- Modal de Criação de Card -->
+    <div id="cardForm" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeCardForm()">&times;</span>
+            <input type="text" id="cardTitle" placeholder="Título do Card" required>
+            <div id="cardDescription" class="editable-area" contenteditable="true"
+                placeholder="Descrição (suporte a imagens via colagem)" data-placeholder="Descreva a tarefa..."></div>
+            <button class="btn-primary" onclick="createCard()">Criar Card</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="grid-footer">
+        <p>Sistema de Gerenciamento de Tarefas © 2024 | Boar Task</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
